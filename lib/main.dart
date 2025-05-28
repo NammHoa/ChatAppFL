@@ -1,9 +1,12 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:chatappflutter/firebase_options.dart';
 import 'package:chatappflutter/main_screen/home_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   final savedThemeMode = await AdaptiveTheme.getThemeMode();
   runApp(MyApp(savedThemeMode: savedThemeMode));
 }
